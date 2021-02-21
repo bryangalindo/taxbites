@@ -1,0 +1,59 @@
+{% extends "base.html" %} 
+{% block content %}
+{% load static %}
+
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+    
+    .head_text {
+        color: white;
+    }
+    
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+
+</style>
+
+<!-- <header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-white"> Accounting Tax Bites  </h3>
+                    <p class="text-light">We love taxes as much as the next person &nbsp
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header> -->
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3">
+        <!-- Blog Entries Column -->
+          <div class="card-deck">
+            {% for post in post_list %}
+            <div class="col mt-4 col-sm-4" >
+            <div class="card h-100" class="card-img-top">
+  				<img src="{% static 'taxbites/premium_tax_credit_card.jpg' %}">
+  				<div class="card-body">
+    				<h5 class="card-title">{{ post.title }}</h5>
+    				<p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }} </p>
+    				<p class="card-text">
+					{% with content=post.content|striptags|safe %}
+					{{ content|truncatewords:25 }}</p>
+					{% endwith %}
+					<a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+  				</div>
+			</div>
+            </div>
+            {% endfor %}
+          </div>
+    </div>
+</div>
+{%endblock%}

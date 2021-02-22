@@ -6,6 +6,7 @@ STATUS = (
 	(1, "Publish"),
 )
 
+
 class Post(models.Model):
 	title = models.CharField(max_length=200, unique=True)
 	slug = models.SlugField(max_length=200, unique=True)
@@ -14,6 +15,7 @@ class Post(models.Model):
 	content = models.TextField()
 	created_on = models.DateTimeField(auto_now_add=True)
 	status = models.IntegerField(choices=STATUS, default=0)
+	thumbnail = models.ImageField(upload_to='thumbnails', default='default.jpg')
 
 	class Meta:
 		ordering = ['-created_on']

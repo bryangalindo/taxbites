@@ -40,7 +40,7 @@
             {% for post in post_list %}
             <div class="col mt-4 col-sm-4" >
             <div class="card h-100" class="card-img-top">
-  				<img src="{% static 'taxbites/premium_tax_credit_card.jpg' %}">
+  				<img src="{{ post.thumbnail.url }}" alt="{{ post.title }}">
   				<div class="card-body">
     				<h5 class="card-title">{{ post.title }}</h5>
     				<p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }} </p>

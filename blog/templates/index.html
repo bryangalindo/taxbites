@@ -17,22 +17,21 @@
         box-shadow: 0 16px 48px #E3E7EB;
     }
 
+    .full-width {
+	left: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	max-width: 100vw;
+	position: relative;
+	right: 50%;
+	width: 100vw;
+    height: auto;
+}
 </style>
-
-<!-- <header class="masthead">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class=" col-md-8 col-md-10 mx-auto">
-                <div class="site-heading">
-                    <h3 class=" site-heading my-4 mt-3 text-white"> Accounting Tax Bites  </h3>
-                    <p class="text-light">We love taxes as much as the next person &nbsp
-                    </p>
-                </div>
-            </div>
-        </div>
+    <div class="fill">
+        <img class='full-width' src="{% static 'taxbites/pho_banner.jpg' %}">
     </div>
-</header> -->
+
 <div class="container">
     <div class="row row-cols-1 row-cols-md-3">
         <!-- Blog Entries Column -->
